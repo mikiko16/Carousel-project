@@ -16,5 +16,14 @@ export const Data = [
     },
     {
         video: 'https://www.youtube.com/watch?v=eqcRlKahEAw'
+    },
+    {
+        video: 'https://www.youtube.com/watch?v=LhJOF-3bOaE'
+    },
+    {
+        video: 'https://www.youtube.com/watch?v=rMhqXliSYFY'
+    },
+    {
+        video: 'https://www.youtube.com/watch?v=eqcRlKahEAw'
     }
 ]

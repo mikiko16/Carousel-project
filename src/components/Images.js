@@ -42,7 +42,7 @@ const Slider = ({ slides }) => {
                                     <img src={slide.image} alt='travel image' className="image" />
                                 )}
                                 {index === current && slide.video && (
-                                    <ReactPlayer url={slide.video} className="image"/> 
+                                    <ReactPlayer url={slide.video} playing={true} className="image"/> 
                                 )}
                             </div>
                         );
