@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa'
+import ReactPlayer from "react-player/lazy";
 
 const Slider = ({ slides }) => {
     const [current, setCurrent] = useState(0)
@@ -35,13 +36,16 @@ const Slider = ({ slides }) => {
                 <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
                 <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} />
                 {slides.map((slide, index) => {
-                    return (
-                        <div className={index === current ? 'slide active' : 'slide'} key={index}>
-                            {index === current && (
-                                <img src={slide.image} alt='travel image' className="image" />
-                            )}
-                        </div>
-                    );
+                        return (
+                            <div className={index === current ? 'slide active' : 'slide'} key={index}>
+                                {index === current && slide.image && (
+                                    <img src={slide.image} alt='travel image' className="image" />
+                                )}
+                                {index === current && slide.video && (
+                                    <ReactPlayer url={slide.video} className="image"/> 
+                                )}
+                            </div>
+                        );
                 })}
             </div>
         </section>
