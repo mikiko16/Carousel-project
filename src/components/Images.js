@@ -3,15 +3,17 @@ import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa'
 import ReactPlayer from "react-player/lazy";
 
 const Slider = ({ slides }) => {
-    const [current, setCurrent] = useState(0)
-    const [autoPlay, setAutoPlay] = useState(true)
-    const length = slides.length
+    const props = slides[0]
+    const data = slides[1]
+    const [current, setCurrent] = useState(props.initialIndex)
+    const [autoPlay, setAutoPlay] = useState(props.autoplay)
+    const length = data.length
     let timeOut = null
 
     useEffect(() => {
         timeOut = autoPlay && setTimeout(() => {
             nextSlide();
-        }, 2500)
+        }, props.autoplayInterval)
     })
 
     const nextSlide = () => {
@@ -35,7 +37,7 @@ const Slider = ({ slides }) => {
                 }}>
                 <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
                 <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} />
-                {slides.map((slide, index) => {
+                {data.map((slide, index) => {
                         return (
                             <div className={index === current ? 'slide active' : 'slide'} key={index}>
                                 {index === current && slide.image && (
